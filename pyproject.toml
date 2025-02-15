@@ -1,18 +1,22 @@
-[tool.poetry]
+[project]
 name = "app"
 version = "0.1.0"
 description = ""
-authors = ["jefer94 <jdefreitaspinto@gmail.com>"]
+authors = [
+    {name = "jefer94",email = "jdefreitaspinto@gmail.com"}
+]
 readme = "README.md"
-package-mode = true
+requires-python = ">=3.13"
+dependencies = [
+    "amqp (>=5.3.1,<6.0.0)",
+    "celery (>=5.4.0,<6.0.0)",
+    "flower (>=2.0.1,<3.0.0)"
+]
 
-[tool.poetry.dependencies]
-python = "^3.13"
-amqp = "^5.3.1"
-celery = "^5.4.0"
-flower = "^2.0.1"
+[tool.poetry]
+packages = [{include = "app", from = "src"}]
 
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
