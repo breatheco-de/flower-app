@@ -33,7 +33,6 @@ done
 
 wait
 
-newrelic-admin run-program bin/start-pgbouncer \
-    python -m celery -A breathecode.celery flower --port=$PORT --loglevel=$LOG_LEVEL \
-        --prefetch-multiplier=$CELERY_PREFETCH_MULTIPLIER --pool=$CELERY_POOL \
-        $SCALING
+python -m celery -A app.celery flower --port=$PORT --loglevel=$LOG_LEVEL \
+    --prefetch-multiplier=$CELERY_PREFETCH_MULTIPLIER --pool=$CELERY_POOL \
+    $SCALING
